@@ -11,3 +11,15 @@ Check out the website to learn more: https://zmk.dev/
 You can also come join our [ZMK Discord Server](https://zmk.dev/community/discord/invite)
 
 To review features, check out the [feature overview](https://zmk.dev/docs/). ZMK is under active development, and new features are listed with the [enhancement label](https://github.com/zmkfirmware/zmk/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) in GitHub. Please feel free to add 👍 to the issue description of any requests to upvote the feature.
+
+
+## Install and build
+
+```
+# Project root directory
+cd ./app
+
+# Build Harper firmware
+west build -d build/harper/left -b harper_left -p && cp ./build/harper/left/zephyr/zmk.uf2 ../builds/harper/left.uf2
+west build -d build/harper/right -b harper_right -p && cp ./build/harper/right/zephyr/zmk.uf2 ../builds/harper/right.uf2
+```

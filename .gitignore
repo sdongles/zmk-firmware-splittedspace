@@ -6,4 +6,7 @@
 /zmk-config
 /build
 *.DS_Store
-__pycache__
+__pycache__.vscode/settings.json
+app/venv/
+.vscode
+builds
