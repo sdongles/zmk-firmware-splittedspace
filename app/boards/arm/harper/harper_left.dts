@@ -12,3 +12,7 @@
         , <&gpio0  9 GPIO_ACTIVE_HIGH> //encoder
         ;
 };
+
+&left_encoder {
+	status = "okay";
+};
