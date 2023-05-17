@@ -23,7 +23,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #define LED_BLINK_PROFILE 180
 #define LED_BLINK_CONN 140
-#define LED_BATTERY_BLINK 400
+#define LED_BATTERY_BLINK 200
 #define LED_BATTERY_SHOW 1400
 #define LED_BATTERY_SLEEP_SHOW 1000
 #define LED_CONN_ACTIVE_DELAY 1800
@@ -101,18 +101,15 @@ void display_battery(void) {
     uint8_t level = bt_bas_get_battery_level();
     LOG_WRN("Battery %d", level);
 
-    if (level <= 10) {
+    if (level <= 20) {
         blink(&battery_leds[0], LED_BATTERY_BLINK, 5);
     } else {
         ledON(&battery_leds[0]);
-        if (level > 20) {
+        if (level > 40) {
             ledON(&battery_leds[1]);
         }
-        if (level > 40) {
-            ledON(&battery_leds[2]);
-        }
         if (level > 80) {
-            ledON(&battery_leds[3]);
+            ledON(&battery_leds[2]);
         }
     }
 
@@ -153,7 +150,9 @@ void led_bat_animation() {
         k_msleep(LED_BATTERY_SLEEP_SHOW);
         ledOFF(&battery_leds[2]);
     } else {
-        led_all_OFF();
+        ledON(&battery_leds[0]);
+        ledON(&battery_leds[1]);
+        ledON(&battery_leds[2]);
     }
     
     k_timer_start(&bat_timer, K_SECONDS(LED_BATTERY_SLEEP_SHOW/1000), K_NO_WAIT);
@@ -317,6 +316,8 @@ int led_state_listener(const zmk_event_t *eh)
 
     if (state != ZMK_ACTIVITY_ACTIVE) {
         led_bat_animation();
+    } else {
+        led_all_OFF();
     }
 
     return ZMK_EV_EVENT_BUBBLE;
