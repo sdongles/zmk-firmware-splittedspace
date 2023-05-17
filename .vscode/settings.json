@@ -1,7 +1,39 @@
 {
   "files.associations": {
     "*.overlay": "dts",
-    "*.keymap": "dts"
+    "*.keymap": "dts",
+    "sensor_event.h": "c",
+    "__bit_reference": "c",
+    "__node_handle": "c",
+    "atomic": "c",
+    "bitset": "c",
+    "chrono": "c",
+    "cstddef": "c",
+    "deque": "c",
+    "__memory": "c",
+    "filesystem": "c",
+    "limits": "c",
+    "locale": "c",
+    "optional": "c",
+    "random": "c",
+    "ratio": "c",
+    "regex": "c",
+    "system_error": "c",
+    "tuple": "c",
+    "type_traits": "c",
+    "vector": "c",
+    "__functional_base": "c",
+    "algorithm": "c",
+    "functional": "c",
+    "iterator": "c",
+    "memory": "c",
+    "*.tcc": "c",
+    "array": "c",
+    "utility": "c",
+    "variant": "c",
+    "sensor.h": "c"
   },
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "cmake.configureOnOpen": false,
+  "cmake.sourceDirectory": "/Users/serjik/Documents/SSP/zmk/app/boards/arm/corneish_zen"
 }
