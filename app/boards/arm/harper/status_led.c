@@ -238,10 +238,7 @@ static int led_init(const struct device *dev) {
         led_configure(&battery_leds[i]);
     }
 
-    // Show battery state
     display_battery();
-
-    // Start checking connection
     check_ble_connection();
 
     return 0;
