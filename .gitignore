@@ -10,3 +10,4 @@ __pycache__.vscode/settings.json
 app/venv/
 .vscode
 builds
+instructions.md
