@@ -14,7 +14,6 @@
 
 	led_strip: ws2812@0 {
 		compatible = "worldsemi,ws2812-spi";
-		label = "WS2812";
 
 		// SPI
 		reg = <0>; // ignored, but necessary for SPI bindings
@@ -79,8 +78,6 @@
 
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
-		label = "KSCAN";
-
 		diode-direction = "col2row";
 		row-gpios
 			= <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -119,15 +116,14 @@
 
 	vbatt: vbatt {
 		compatible = "zmk,battery-voltage-divider";
-		label = "BATTERY";
 		io-channels = <&adc 0>;
 		output-ohms = <2000000>;
 		full-ohms = <(2000000 + 820000)>;
 	};
 
 	left_encoder: encoder_left {
+		label = "Left Encoder";
 		compatible = "alps,ec11";
-		label = "LEFT_ENCODER";
 		resolution = <2>;
 		a-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 		b-gpios = <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -135,8 +131,8 @@
 	};
 
 	right_encoder: encoder_right {
+		label = "Right Encoder";
 		compatible = "alps,ec11";
-		label = "RIGHT_ENCODER";
 		resolution = <2>;
 		a-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 		b-gpios = <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -170,7 +166,6 @@
   status = "okay";
   cdc_acm_uart: cdc_acm_uart {
     compatible = "zephyr,cdc-acm-uart";
-    label = "CDC_ACM_0";
   };
 };
 
